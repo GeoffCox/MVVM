@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BellaCode.Mvvm.ViewModel" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BellaCode.Mvvm.ViewModel&lt;TModel&gt;" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel.Generic1T.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BellaCode.Mvvm.ViewModel&lt;TView, TModel&gt;" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAKAAAgAAAAAAAAAAAAgAABAAAAAYgABAAIAAA=</HashCode>
+      <FileName>ViewModel.Generic2T.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BellaCode.Mvvm.ViewModelScope" Collapsed="true">
+    <Position X="3.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAIAACSCQAAAACAAAgAAACAAAgIIAAAA=</HashCode>
+      <FileName>ViewModelScope.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BellaCode.Mvvm.DefaultViewModelFactory" Collapsed="true">
+    <Position X="5.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>DefaultViewModelFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BellaCode.Mvvm.BindCommandBehavior">
+    <Position X="9" Y="0.5" Width="2.75" />
+    <Members>
+      <Method Name="AssociatedObject_DataContextChanged" Hidden="true" />
+      <Method Name="AssociatedObject_PropertyChanged" Hidden="true" />
+      <Method Name="BindCommandBehavior" Hidden="true" />
+      <Method Name="CanExecute" Hidden="true" />
+      <Method Name="CanExecuteCommand" Hidden="true" />
+      <Field Name="CanExecuteMethodNameProperty" Hidden="true" />
+      <Field Name="CanExecutePropertyNameProperty" Hidden="true" />
+      <Field Name="commandBinding" Hidden="true" />
+      <Field Name="CommandProperty" Hidden="true" />
+      <Method Name="EndEditing" Hidden="true" />
+      <Method Name="Execute" Hidden="true" />
+      <Method Name="ExecuteCommand" Hidden="true" />
+      <Field Name="ExecuteMethodNameProperty" Hidden="true" />
+      <Method Name="GetCanExecuteMethodInfo" Hidden="true" />
+      <Method Name="GetCanExecutePropertyInfo" Hidden="true" />
+      <Method Name="GetCommandName" Hidden="true" />
+      <Method Name="GetExecuteMethodInfo" Hidden="true" />
+      <Method Name="Invoke" Hidden="true" />
+      <Field Name="notifyPropertyChanged" Hidden="true" />
+      <Method Name="OnAttached" Hidden="true" />
+      <Method Name="OnCanExecuteMethodNameChanged" Hidden="true" />
+      <Method Name="OnCanExecutePropertyNameChanged" Hidden="true" />
+      <Method Name="OnCommandChanged" Hidden="true" />
+      <Method Name="OnDetaching" Hidden="true" />
+      <Method Name="OnExecuteMethodNameChanged" Hidden="true" />
+      <Method Name="SoftConvert" Hidden="true" />
+      <Method Name="UpdateCommandBinding" Hidden="true" />
+      <Method Name="UpdateNotifyPropertyChanged" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EIAogAQQFAYIAAUAQEEABAIIAAAAAAAAIAYAqAAAgAg=</HashCode>
+      <FileName>BindCommandBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BellaCode.Mvvm.InteractionEventArgs">
+    <Position X="9" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>InteractionEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="BellaCode.Mvvm.IViewModel" Collapsed="true">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>IViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BellaCode.Mvvm.IViewModel&lt;TView, TModel&gt;" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>IViewModel.Generic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BellaCode.Mvvm.IViewModelFactory" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>IViewModelFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
