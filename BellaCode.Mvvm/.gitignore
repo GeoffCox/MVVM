@@ -1,5 +1,4 @@
 *.Cache
 *.csproj.user
-*.suo
 bin/
 obj/

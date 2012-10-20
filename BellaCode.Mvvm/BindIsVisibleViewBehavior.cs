@@ -6,8 +6,13 @@
     using System.Windows.Interactivity;
 
     /// <summary>
-    /// Binds the associated UIElement's IsVisible property to the IsViewVisible property to allow the view model to be notified (via OneWayToSource binding).
+    /// Binds the associated UIElement's IsVisible property to the IsVisible dependency property (via OneWayToSource binding).
+    /// This allows a property on the view model to be set.   
     /// </summary>
+    /// <remarks>
+    /// In this example, the view model's IsActive property is updated:
+    /// <code>&lt;bellacode:BindIsVisibleViewBehavior IsVisible="{Binding IsActive, Mode=OneWayToSource}"/&gt;</code>
+    /// </remarks>
     public class BindIsVisibleViewBehavior : Behavior<UIElement>
     {
         public bool IsVisible
@@ -25,12 +30,12 @@
             var binding = BindingOperations.GetBinding(this, IsVisibleProperty);
             if (binding.Mode != BindingMode.OneWayToSource)
             {
-                throw new InvalidOperationException("SelectedItems binding mode must be OneWayToSource");
+                throw new InvalidOperationException("The BindIsVisibleViewBehavior.IsVisible BindingMode is not OneWayToSource.");
             }
 
             this.AssociatedObject.IsVisibleChanged += this.AssociatedObject_IsVisibleChanged;
             this.UpdateIsViewVisible();
-        }      
+        }
 
         protected override void OnDetaching()
         {
@@ -38,7 +43,7 @@
             base.OnDetaching();
         }
 
-        void AssociatedObject_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void AssociatedObject_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             this.UpdateIsViewVisible();
         }

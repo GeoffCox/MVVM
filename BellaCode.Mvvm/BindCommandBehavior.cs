@@ -11,17 +11,24 @@
     using System.Windows.Interactivity;
     using System.Windows.Media;
 
+    /// <summary>
+    /// Binds a command to a method for executing the command and a property or method for determining if the command can execute.
+    /// </summary>
+    /// <remarks>
+    /// By convention, the methods and properties used are based on the command name.
+    /// For example, if the command is named SaveCommand, then the behavior looks for a CanSave method/property and a Save method.
+    /// For CanSave, the behavior looks for a matching method, then a matching property.
+    /// For CanSave, if no property or method is found then the command is allowed to execute.
+    /// </remarks>
     public class BindCommandBehavior : Behavior<FrameworkElement>
     {
-        private CommandBinding commandBinding;
+        private CommandBinding _commandBinding;
 
-        private INotifyPropertyChanged notifyPropertyChanged;
+        private INotifyPropertyChanged _notifyPropertyChanged;
 
         public BindCommandBehavior()
         {
         }
-
-        #region Dependency Properties
 
         [Category("Common Properties")]
         [Description("The command to bind to the methods in the data context.")]
@@ -34,6 +41,11 @@
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(BindCommandBehavior),
             new FrameworkPropertyMetadata(null, (d, e) => ((BindCommandBehavior)d).OnCommandChanged((ICommand)e.OldValue, (ICommand)e.NewValue)));
 
+        private void OnCommandChanged(ICommand oldValue, ICommand newValue)
+        {
+            this.UpdateCommandBinding();
+        }
+
         [Category("Common Properties")]
         [Description("The optional name of the execute method to call when the command Execute is called.")]
         public string ExecuteMethodName
@@ -45,16 +57,10 @@
         public static readonly DependencyProperty ExecuteMethodNameProperty = DependencyProperty.Register("ExecuteMethodName", typeof(string), typeof(BindCommandBehavior),
             new FrameworkPropertyMetadata(null, (d, e) => ((BindCommandBehavior)d).OnExecuteMethodNameChanged((string)e.OldValue, (string)e.NewValue)));
 
-        [Category("Common Properties")]
-        [Description("The optional name of the property to use when the command CanExecute is called.")]
-        public string CanExecutePropertyName
+        private void OnExecuteMethodNameChanged(string oldValue, string newValue)
         {
-            get { return (string)GetValue(CanExecutePropertyNameProperty); }
-            set { SetValue(CanExecutePropertyNameProperty, value); }
+            CommandManager.InvalidateRequerySuggested();
         }
-
-        public static readonly DependencyProperty CanExecutePropertyNameProperty = DependencyProperty.Register("CanExecutePropertyName", typeof(string), typeof(BindCommandBehavior),
-            new FrameworkPropertyMetadata(null, (d, e) => ((BindCommandBehavior)d).OnCanExecutePropertyNameChanged((string)e.OldValue, (string)e.NewValue)));
 
         [Category("Common Properties")]
         [Description("The optional name of the method to use when the command CanExecute is called.")]
@@ -67,54 +73,40 @@
         public static readonly DependencyProperty CanExecuteMethodNameProperty = DependencyProperty.Register("CanExecuteMethodName", typeof(string), typeof(BindCommandBehavior),
             new FrameworkPropertyMetadata(null, (d, e) => ((BindCommandBehavior)d).OnCanExecuteMethodNameChanged((string)e.OldValue, (string)e.NewValue)));
 
-        #endregion
-
-        #region Dependency Property Callbacks
-
-        private void OnCommandChanged(ICommand oldValue, ICommand newValue)
-        {
-            this.UpdateCommandBinding();
-        }
-
         private void OnCanExecuteMethodNameChanged(string oldValue, string newValue)
         {
             CommandManager.InvalidateRequerySuggested();
         }
+
+        [Category("Common Properties")]
+        [Description("The optional name of the property to use when the command CanExecute is called.")]
+        public string CanExecutePropertyName
+        {
+            get { return (string)GetValue(CanExecutePropertyNameProperty); }
+            set { SetValue(CanExecutePropertyNameProperty, value); }
+        }
+
+        public static readonly DependencyProperty CanExecutePropertyNameProperty = DependencyProperty.Register("CanExecutePropertyName", typeof(string), typeof(BindCommandBehavior),
+            new FrameworkPropertyMetadata(null, (d, e) => ((BindCommandBehavior)d).OnCanExecutePropertyNameChanged((string)e.OldValue, (string)e.NewValue)));
 
         private void OnCanExecutePropertyNameChanged(string oldValue, string newValue)
         {
             CommandManager.InvalidateRequerySuggested();
         }
 
-        private void OnExecuteMethodNameChanged(string oldValue, string newValue)
-        {
-            CommandManager.InvalidateRequerySuggested();
-        }
-
-        #endregion        
-
-        #region Overriden Methods
-
         protected override void OnAttached()
         {
             base.OnAttached();
-
             this.AssociatedObject.DataContextChanged += this.AssociatedObject_DataContextChanged;
-
             this.UpdateNotifyPropertyChanged();
             this.UpdateCommandBinding();
-        }        
+        }
 
         protected override void OnDetaching()
         {
             this.AssociatedObject.DataContextChanged -= this.AssociatedObject_DataContextChanged;
-
             base.OnDetaching();
         }
-
-        #endregion
-
-        #region Command Binding Methods
 
         public void CanExecuteCommand(Object sender, CanExecuteRoutedEventArgs e)
         {
@@ -142,10 +134,6 @@
             }
         }
 
-        #endregion
-
-        #region Methods
-
         private bool CanExecute(object target, object parameter)
         {
             Debug.Assert(target != null);
@@ -163,7 +151,7 @@
                 if (propertyInfo != null)
                 {
                     returnValue = propertyInfo.GetValue(target, null) as bool?;
-                }                
+                }
             }
 
             return (returnValue == true);
@@ -180,45 +168,41 @@
             if (methodInfo != null)
             {
                 Invoke(methodInfo, target, parameter);
-            }           
+            }
         }
 
         private void UpdateCommandBinding()
         {
-            if (this.commandBinding != null)
+            if (this._commandBinding != null)
             {
-                this.AssociatedObject.CommandBindings.Remove(this.commandBinding);
+                this.AssociatedObject.CommandBindings.Remove(this._commandBinding);
             }
 
             if (this.Command != null && this.AssociatedObject != null)
             {
-                this.commandBinding = new CommandBinding(this.Command, this.ExecuteCommand, this.CanExecuteCommand);
-                this.AssociatedObject.CommandBindings.Add(this.commandBinding);
+                this._commandBinding = new CommandBinding(this.Command, this.ExecuteCommand, this.CanExecuteCommand);
+                this.AssociatedObject.CommandBindings.Add(this._commandBinding);
             }
             else
             {
-                this.commandBinding = null;
+                this._commandBinding = null;
             }
         }
 
         private void UpdateNotifyPropertyChanged()
         {
-            if (this.notifyPropertyChanged != null)
+            if (this._notifyPropertyChanged != null)
             {
-                notifyPropertyChanged.PropertyChanged -= new PropertyChangedEventHandler(AssociatedObject_PropertyChanged);
+                _notifyPropertyChanged.PropertyChanged -= new PropertyChangedEventHandler(AssociatedObject_PropertyChanged);
             }
 
-            this.notifyPropertyChanged = this.AssociatedObject.DataContext as INotifyPropertyChanged;
+            this._notifyPropertyChanged = this.AssociatedObject.DataContext as INotifyPropertyChanged;
 
-            if (this.notifyPropertyChanged != null)
+            if (this._notifyPropertyChanged != null)
             {
-                notifyPropertyChanged.PropertyChanged += new PropertyChangedEventHandler(AssociatedObject_PropertyChanged);
+                _notifyPropertyChanged.PropertyChanged += new PropertyChangedEventHandler(AssociatedObject_PropertyChanged);
             }
-        }     
-
-        #endregion
-
-        #region Reflection Helper Methods
+        }
 
         private PropertyInfo GetCanExecutePropertyInfo(object target)
         {
@@ -314,7 +298,7 @@
                 {
                     return methodInfo.Invoke(target, new object[] { null });
                 }
-            }            
+            }
             else
             {
                 return methodInfo.Invoke(target, null);
@@ -368,10 +352,6 @@
             return value;
         }
 
-        #endregion
-
-        #region Event Handlers
-
         private void AssociatedObject_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             this.UpdateNotifyPropertyChanged();
@@ -401,17 +381,13 @@
             }
         }
 
-        #endregion
-
-        #region Editing Helper Methods
-
         // When shortcuts to commands are pressed, textboxes don't lose focus and don't update their sources.
         // This method updates the source.  
         // This should update the command parameter value as the parameter is passed in by reference.
         private static void EndEditing()
         {
             IInputElement focusedElement = Keyboard.FocusedElement;
-          
+
             if ((focusedElement is TextBox) ||
                 (focusedElement is RichTextBox) ||
                 (focusedElement is PasswordBox))
@@ -453,8 +429,6 @@
                 DependencyObject childDependencyObject = VisualTreeHelper.GetChild(dependencyObject, i);
                 EndEditing(childDependencyObject);
             }
-        } 
-
-        #endregion
+        }
     }
 }
