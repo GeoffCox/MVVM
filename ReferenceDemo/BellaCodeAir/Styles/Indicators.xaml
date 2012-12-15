@@ -1,0 +1,164 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                    xmlns:bellacode="http://schemas.bellacode.com/xaml"
+                    xmlns:bellacode_air="http://schemas.bellacode.com/BellaCodeAir/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">    
+    
+    <Style x:Key="FlightStatus.WaitingForDeparture" TargetType="{x:Type Control}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Canvas Width="24" Height="24">
+                        <Rectangle Height="24" Canvas.Left="0" Canvas.Top="0" Width="24" Fill="Gray"/>
+                        <Path Data="M0,0 L3.3339996,0 8.100369,1.9997292 19.326855,1.9997292 19.327487,2.0002592 19.329746,2.0001798 C19.743959,2.0001796 20.613312,2.4478949 21.2715,3.0001797 21.929687,3.5524644 22.127467,4.0001796 21.713253,4.0001796 L21.706033,3.9997296 16.795933,3.9997296 16.795933,7.4996541 12.795933,7.4996541 12.795933,3.9997296 6.710362,3.9997296 4.3268547,1.9997292 4.7663689,1.9997292 z" Fill="White" Height="7.5" Canvas.Left="-2.44" RenderTransformOrigin="0.674695435632101,0.766655903425721" Stretch="Fill" Canvas.Top="8.25" Width="21.928">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-50"/>
+                                    <RotateTransform Angle="-30.311"/>
+                                    <TranslateTransform X="1.133" Y="0.183"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlightStatus.InFlight" TargetType="{x:Type Control}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Canvas Width="24" Height="24">
+                        <Rectangle Height="24" Canvas.Left="0" Canvas.Top="0" Width="24" Fill="#FF066FB2"/>
+                        <Path Data="M0,0 L3.3339996,0 8.100369,1.9997292 19.326855,1.9997292 19.327487,2.0002592 19.329746,2.0001798 C19.743959,2.0001796 20.613312,2.4478949 21.2715,3.0001797 21.929687,3.5524644 22.127467,4.0001796 21.713253,4.0001796 L21.706033,3.9997296 16.795933,3.9997296 16.795933,7.4996541 12.795933,7.4996541 12.795933,3.9997296 6.710362,3.9997296 4.3268547,1.9997292 4.7663689,1.9997292 z" Fill="White" Height="7.5" Canvas.Left="-2.44" RenderTransformOrigin="0.674695435632101,0.766655903425721" Stretch="Fill" Canvas.Top="8.25" Width="21.928">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-50"/>
+                                    <RotateTransform Angle="-30.311"/>
+                                    <TranslateTransform X="1.133" Y="0.183"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FlightStatus.Arrived" TargetType="{x:Type Control}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="SnapsToDevicePixels" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Canvas Width="24" Height="24">
+                        <Rectangle Height="24" Canvas.Left="0" Canvas.Top="0" Width="24" Fill="#FF1B9D01"/>
+                        <Path Data="M0,0 L3.3339996,0 8.100369,1.9997292 19.326855,1.9997292 19.327487,2.0002592 19.329746,2.0001798 C19.743959,2.0001796 20.613312,2.4478949 21.2715,3.0001797 21.929687,3.5524644 22.127467,4.0001796 21.713253,4.0001796 L21.706033,3.9997296 16.795933,3.9997296 16.795933,7.4996541 12.795933,7.4996541 12.795933,3.9997296 6.710362,3.9997296 4.3268547,1.9997292 4.7663689,1.9997292 z" Fill="White" Height="7.5" Canvas.Left="-2.44" RenderTransformOrigin="0.674695435632101,0.766655903425721" Stretch="Fill" Canvas.Top="8.25" Width="21.928">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-50"/>
+                                    <RotateTransform Angle="-30.311"/>
+                                    <TranslateTransform X="1.133" Y="0.183"/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <bellacode_air:FlightStatusValueConverter x:Key="FlightStatusValueConverter" />
+    
+    <Style x:Key="Flight.Status" TargetType="{x:Type Control}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Storyboard x:Key="ShowUnknownStoryboard">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WaitingForDepartureIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InFlightIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ArrivedIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="ShowWaitingForDepartureStoryboard">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WaitingForDepartureIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InFlightIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ArrivedIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="ShowInFlightStoryboard">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WaitingForDepartureIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InFlightIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ArrivedIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="ShowArrivedStoryboard" >
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="WaitingForDepartureIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InFlightIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ArrivedIndicator">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Grid.Resources>
+                        <i:Interaction.Triggers>                            
+                            <ei:DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="{x:Static bellacode_air:FlightStatus.WaitingForDeparture}">
+                                <ei:ControlStoryboardAction Storyboard="{StaticResource ShowWaitingForDepartureStoryboard}"/>
+                            </ei:DataTrigger>
+                            <ei:DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="{x:Static bellacode_air:FlightStatus.InFlight}">
+                                <ei:ControlStoryboardAction Storyboard="{StaticResource ShowInFlightStoryboard}"/>
+                            </ei:DataTrigger>
+                            <ei:DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="{x:Static bellacode_air:FlightStatus.Arrived}">
+                                <ei:ControlStoryboardAction Storyboard="{StaticResource ShowArrivedStoryboard}"/>
+                            </ei:DataTrigger>
+                        </i:Interaction.Triggers>
+                        <Viewbox Stretch="Uniform" StretchDirection="Both" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" >
+                            <Grid ToolTip="{Binding Status, Converter={StaticResource FlightStatusValueConverter}, Mode=OneWay}">
+                                <Control x:Name="WaitingForDepartureIndicator" Style="{StaticResource FlightStatus.WaitingForDeparture}" />
+                                <Control x:Name="InFlightIndicator" Style="{StaticResource FlightStatus.InFlight}"  Opacity="0" />
+                                <Control x:Name="ArrivedIndicator" Style="{StaticResource FlightStatus.Arrived}" Opacity="0" />
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="BellaCodeAir.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BellaCode Air - MVVM Reference Application" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <!-- The entire UI is just a standard .NET Control with a custom style.  No code behind. -->
+    <Control Style="{DynamicResource Main.View}" />
+</Window>

@@ -1,0 +1,87 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+    xmlns:bellacode="http://schemas.bellacode.com/xaml" 
+    xmlns:bellacode_air="http://schemas.bellacode.com/BellaCodeAir/xaml" 
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions">
+    
+    <Style x:Key="Main.View" TargetType="{x:Type Control}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <bellacode:ViewModelScope ViewModelType="{x:Type bellacode_air:MainViewModel}" >
+                        <Grid>                           
+                            <i:Interaction.Behaviors>
+                                <bellacode:BindCommandBehavior Command="{x:Static bellacode_air:MainCommands.Reset}"/>
+                                <bellacode:BindCommandBehavior Command="{x:Static bellacode_air:ListCommands.Add}" ExecuteMethodName="AddFlight" />
+                                <bellacode:BindCommandBehavior Command="{x:Static bellacode_air:ListCommands.Delete}" CanExecuteMethodName="CanDeleteFlight" ExecuteMethodName="DeleteFlight" />
+                            </i:Interaction.Behaviors>
+                            <i:Interaction.Triggers>
+                                <!-- An event trigger that calls an action when an event is raised from the view model. -->
+                                <i:EventTrigger SourceObject="{Binding Mode=OneWay}" EventName="ConfirmDeleteFlightRequested">
+                                    <bellacode_air:ConfirmDeleteFlightAction />
+                                </i:EventTrigger>                                
+                            </i:Interaction.Triggers>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!-- A property on the view model is passed as the DataContext to another view. -->
+                            <Control Style="{DynamicResource Flights.View}" DataContext="{Binding Flights, Mode=OneWay}" />
+                            <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="0,1,0,0" >
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <!-- A button that invokes a command when clicked. -->
+                                    <Button Grid.Column="0" Command="{x:Static bellacode_air:MainCommands.Reset}" Content="Reset" Margin="5" Width="80" Height="25" />
+                                    <Button Grid.Column="1" Command="{x:Static bellacode_air:ListCommands.Add}" Content="Add Flight" Margin="5" Width="80" Height="25" />
+                                    <Control Grid.Column="3" Style="{DynamicResource Main.DateTimeSlider}" Margin="5" Width="200" DataContext="{Binding Flights, Mode=OneWay}" />
+                                </Grid>
+                            </Border>                            
+                        </Grid>
+                    </bellacode:ViewModelScope>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="Main.DateTimeSlider" TargetType="{x:Type Control}">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <bellacode:ViewModelScope ViewModelType="{x:Type bellacode_air:WorldClockViewModel}" >
+                        <Grid>
+                            <i:Interaction.Behaviors>
+                                <bellacode:BindCommandBehavior Command="{x:Static MediaCommands.Play}"/>
+                                <bellacode:BindCommandBehavior Command="{x:Static MediaCommands.Pause}"/>
+                            </i:Interaction.Behaviors>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding CurrentDateTime, StringFormat=d}" />
+                                <TextBlock Text=" " />
+                                <TextBlock Text="{Binding CurrentDateTime, StringFormat=t}" />
+                            </StackPanel>
+                            <Slider Grid.Row="1" Value="{Binding Percentage, Mode=TwoWay}" Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1" />
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Command="MediaCommands.Play" Content="Play" Height="25" Width="80" Margin="5" />
+                                <Button Command="MediaCommands.Pause" Content="Pause" Height="25" Width="80" Margin="5" />
+                            </StackPanel>
+                        </Grid>
+                    </bellacode:ViewModelScope>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
