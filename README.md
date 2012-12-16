@@ -23,10 +23,10 @@ Core Classes
 ----
 These are the classes you'll use most of the time.
 
-ViewModel<TModel>
+*ViewModel<TModel>*
     This is a base class for your view model classes.
 
-ViewModelScope
+*ViewModelScope*
     This is a Decorator class (like Border) that you wrap around existing elements.  
 	Unlike Border, it doesn't display or make changes to the UI. 
 	Just set the ViewModelType property to the type of your view model.
@@ -35,29 +35,30 @@ Alternative Classes
 ----
 These are classes you'll use for special cases.
 
-ViewModel
+*ViewModel*
     This is a weakly-typed base classes. Derive your view models classes from it when you don't need the view or the model.
 
-ViewModel<TView, TModel>
-This is a base class for when your view model needs access to the view. Prefer specifying and interface for TView.
+*ViewModel<TView, TModel>*
+    This is a base class for when your view model needs access to the view.
 
 Advanced Classes - Dependency Injection
 ----
 These are interfaces and classes you can implement to integrate dependency injection containers like Ninject, Unity, or MEF.
 
-IViewModelFactory
+*IViewModelFactory*
     Implement this interface to create view model types using your DI container.  
-	Then set the ViewModelScope.ViewModelFactory static to your implementation when your application starts.
+    Then set the ViewModelScope.ViewModelFactory static to your implementation when your application starts.
 
 Infrastruture Classes
 ----
 Interfaces you generally don't need to implement and classes you generally don't need to use.
 
-IViewModel
+*IViewModel*
     The general purpose base interface used by the ViewModelScope class.
 
-IViewModel<TView,TModel>
+*IViewModel<TView,TModel>*
     The strongly typed interface implemented by ViewModel<TView, TModel>.
 
-DefaultViewModelFactory
-    The the default class for creating view models. It uses the Activator to create instances of types loaded in the application domain.
+*DefaultViewModelFactory*
+    The the default class for creating view models. 
+    It uses the Activator to create instances of types loaded in the application domain.
