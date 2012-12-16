@@ -120,7 +120,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BellaCode.Mvvm\BellaCode.Mvvm.csproj">
+    <ProjectReference Include="..\..\BellaCode.Mvvm\BellaCode.Mvvm.csproj">
       <Project>{7DC5C637-5988-41F8-8921-DDB7F238FCAA}</Project>
       <Name>BellaCode.Mvvm</Name>
     </ProjectReference>
