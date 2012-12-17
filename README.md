@@ -23,7 +23,7 @@ Core Classes
 ----
 These are the classes you'll use most of the time.
 
-**ViewModel<TModel>**
+**ViewModel&lt;TModel&gt;**
 
     This is a base class for your view model classes.
 
@@ -40,7 +40,7 @@ These are classes you'll use for special cases.
 
     This is a weakly-typed base classes. Derive your view models classes from it when you don't need the view or the model.
 
-**ViewModel<TView, TModel>**
+**ViewModel&lt;TView, TModel&gt;**
 
     This is a base class for when your view model needs access to the view.
 
@@ -61,7 +61,7 @@ Interfaces you generally don't need to implement and classes you generally don't
 
     The general purpose base interface used by the ViewModelScope class.
 
-**IViewModel<TView,TModel>**
+**IViewModel&lt;TView,TModel&gt;**
 
     The strongly typed interface implemented by ViewModel<TView, TModel>.
 
