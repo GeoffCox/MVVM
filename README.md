@@ -2,6 +2,8 @@ BellaCode.Mvvm
 ====
 BellaCode.Mvvm lightweight library for following the Model-View-ViewModel (M-V-VM) pattern.
 
+Licensed under the MIT license: http://opensource.org/licenses/MIT
+
 Features
 ----
 
