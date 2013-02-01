@@ -2,6 +2,9 @@ BellaCode.Mvvm
 ====
 BellaCode.Mvvm lightweight library for following the Model-View-ViewModel (M-V-VM) pattern.
 
+Now available via NuGet! PM> Install-Package BellaCode.Mvvm 
+  Supports .NET 4.0, .NET 4.0 client, and .NET 4.5.
+
 Licensed under the MIT license: http://opensource.org/licenses/MIT
 
 Features
