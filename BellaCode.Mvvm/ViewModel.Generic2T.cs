@@ -125,12 +125,18 @@
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+#if NET45
+        protected void RaisePropertyChanged([CallerMemberName]string propertyName = null)
+        {
+        #else
         protected void RaisePropertyChanged(string propertyName)
         {
-            if (this.PropertyChanged != null)
+#endif
+            if (this.PropertyChanged != null && propertyName != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
+
 }
