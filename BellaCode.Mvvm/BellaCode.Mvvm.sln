@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BellaCode.Mvvm", "BellaCode.Mvvm.csproj", "{7DC5C637-5988-41F8-8921-DDB7F238FCAA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BellaCode.Mvvm.UnitTests", "..\BellaCode.Mvvm.UnitTests\BellaCode.Mvvm.UnitTests.csproj", "{A4503C60-BFD3-41F8-BDCD-792405B785BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{7DC5C637-5988-41F8-8921-DDB7F238FCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DC5C637-5988-41F8-8921-DDB7F238FCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DC5C637-5988-41F8-8921-DDB7F238FCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4503C60-BFD3-41F8-BDCD-792405B785BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4503C60-BFD3-41F8-BDCD-792405B785BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4503C60-BFD3-41F8-BDCD-792405B785BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4503C60-BFD3-41F8-BDCD-792405B785BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
