@@ -19,6 +19,9 @@ using System;
 
 // Set namespaces in xaml for convienience
 [assembly: XmlnsDefinitionAttribute("http://schemas.bellacode.com/xaml", "BellaCode.Mvvm")]
+[assembly: XmlnsDefinitionAttribute("http://schemas.bellacode.com/xaml", "BellaCode.Mvvm.Actions")]
+[assembly: XmlnsDefinitionAttribute("http://schemas.bellacode.com/xaml", "BellaCode.Mvvm.Behaviors")]
+[assembly: XmlnsDefinitionAttribute("http://schemas.bellacode.com/xaml", "BellaCode.Mvvm.Converters")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

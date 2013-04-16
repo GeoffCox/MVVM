@@ -1,14 +1,19 @@
 ﻿namespace BellaCode.Mvvm
 {
     using System.ComponentModel;
-    using System.Windows;    
+#if NET45
+    using System.Runtime.CompilerServices;
+#endif
+    using System.Windows;
 
     /// <summary>
     /// The base class for a strongly typed implementation of IViewModel.
     /// </summary>
     /// <typeparam name="TView"></typeparam>
-    public class ViewModel<TView,TModel> : IViewModel<TView, TModel>, INotifyPropertyChanged where TView: class where TModel: class
-    {        
+    public class ViewModel<TView, TModel> : IViewModel<TView, TModel>, INotifyPropertyChanged
+        where TView : class
+        where TModel : class
+    {
         private TView view;
         private TModel model;
 
@@ -50,7 +55,7 @@
         /// <param name="oldValue">The old view.</param>
         /// <param name="newValue">The new view.</param>
         protected virtual void OnViewChanged(TView oldValue, TView newValue)
-        {           
+        {
         }
 
         /// <summary>
@@ -91,7 +96,7 @@
                     this.OnModelChanged(oldValue, this.model);
 
                     // I invalidate all properties when the underlying model changes.
-                    this.RaisePropertyChanged(string.Empty);                   
+                    this.RaisePropertyChanged(string.Empty);
                 }
             }
         }
@@ -128,7 +133,7 @@
 #if NET45
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = null)
         {
-        #else
+#else
         protected void RaisePropertyChanged(string propertyName)
         {
 #endif

@@ -30,10 +30,16 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\BellaCode\zNuGet\MVVM\BellaCode.Mvvm.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -51,10 +57,52 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BindCommandBehavior.cs" />
-    <Compile Include="BindIsVisibleViewBehavior.cs" />
-    <Compile Include="BridgeBindingsBehavior.cs" />
+    <Compile Include="Actions\AskQuestionAction.cs" />
+    <Compile Include="Actions\CloseWindowAction.cs" />
+    <Compile Include="Actions\OpenFileDialogAction.cs" />
+    <Compile Include="Actions\SaveFileDialogAction.cs" />
+    <Compile Include="Actions\ScrollItemIntoViewListBoxAction.cs" />
+    <Compile Include="Actions\SetFocusAction.cs" />
+    <Compile Include="Actions\SetWindowTitleAction.cs" />
+    <Compile Include="Actions\ShowMessageAction.cs" />
+    <Compile Include="Behaviors\BindCalendarSelectedDatesBehavior.cs" />
+    <Compile Include="Behaviors\BindPasswordBoxTextBehavior.cs" />
+    <Compile Include="Behaviors\BindSelectedItemsBehavior.cs" />
+    <Compile Include="Behaviors\ClosingWindowExecutesCommandBehavior.cs" />
+    <Compile Include="Behaviors\DoubleClickItemExecutesCommandListBoxBehavior.cs" />
+    <Compile Include="Behaviors\EnterKeyExecutesCommandBehavior.cs" />
+    <Compile Include="Behaviors\EnterKeyUpdatesSourceBehavior.cs" />
+    <Compile Include="Behaviors\FixCalendarMouseCaptureBehavior.cs" />
+    <Compile Include="Behaviors\FocusOnLoadedBehavior.cs" />
+    <Compile Include="Behaviors\FocusOnMouseDownBehavior.cs" />
+    <Compile Include="Behaviors\IdleTypingExecutesCommandBehavior.cs" />
+    <Compile Include="Behaviors\IdleTypingUpdatesSourceBehavior.cs" />
+    <Compile Include="Behaviors\PreviewGotKeyboardFocusSelectsItemListBoxBehavior.cs" />
+    <Compile Include="Behaviors\RefreshBindingAfterLoadBehavior.cs" />
+    <Compile Include="Behaviors\RegisterAppShortcutKeysBehavior.cs" />
+    <Compile Include="Behaviors\ResettableGridSplitterBehavior.cs" />
+    <Compile Include="Behaviors\SelectAllOnFocusTextBoxBehavior.cs" />
+    <Compile Include="Behaviors\WatermarkBehavior.cs" />
+    <Compile Include="Behaviors\BindCommandBehavior.cs" />
+    <Compile Include="Behaviors\BindIsVisibleViewBehavior.cs" />
+    <Compile Include="Behaviors\BridgeBindingsBehavior.cs" />
+    <Compile Include="Converters\AbsoluteValueConverter.cs" />
+    <Compile Include="Converters\BooleanToKnownValueConverter.cs" />
+    <Compile Include="Converters\BooleanVisibilityConverter.cs" />
+    <Compile Include="Converters\CardinalityToVisibilityConverter.cs" />
+    <Compile Include="Converters\NoOpConverter.cs" />
+    <Compile Include="Converters\EnumBooleanConverter.cs" />
+    <Compile Include="Converters\EnumVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Converters\NumericRangeVisibilityConverter.cs" />
+    <Compile Include="Converters\NumericSignToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjectRefToBooleanConverter.cs" />
+    <Compile Include="Converters\ObjectRefToVisibilityConverter.cs" />
+    <Compile Include="Converters\PercentToDegreesConverter.cs" />
+    <Compile Include="Converters\StringVisibilityConverter.cs" />
+    <Compile Include="Converters\ZeroToOneBasedIndexConverter.cs" />
     <Compile Include="DefaultViewModelFactory.cs" />
+    <Compile Include="Helpers\VisualTreeHelperT.cs" />
     <Compile Include="InteractionEventArgs.cs" />
     <Compile Include="InteractionEventArgs.GenericT2.cs" />
     <Compile Include="InteractionEventArgs.GenericT1.cs" />
@@ -68,6 +116,9 @@
     <Compile Include="ViewModelScope.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\BellaCode\zNuGet\MVVM\BellaCode.Mvvm.snk">
+      <Link>BellaCode.Mvvm.snk</Link>
+    </None>
     <None Include="ClassDiagram.cd" />
     <None Include="ReadMe.txt" />
   </ItemGroup>

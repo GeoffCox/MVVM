@@ -33,6 +33,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\BellaCode\zNuGet\MVVM\BellaCode.Mvvm.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -49,10 +55,52 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\BellaCode.Mvvm\BindCommandBehavior.cs" />
-    <Compile Include="..\BellaCode.Mvvm\BindIsVisibleViewBehavior.cs" />
-    <Compile Include="..\BellaCode.Mvvm\BridgeBindingsBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\AskQuestionAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\CloseWindowAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\OpenFileDialogAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\SaveFileDialogAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\ScrollItemIntoViewListBoxAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\SetFocusAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\SetWindowTitleAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Actions\ShowMessageAction.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BindCalendarSelectedDatesBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BindPasswordBoxTextBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BindSelectedItemsBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\ClosingWindowExecutesCommandBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\DoubleClickItemExecutesCommandListBoxBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\EnterKeyExecutesCommandBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\EnterKeyUpdatesSourceBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\FixCalendarMouseCaptureBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\FocusOnLoadedBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\FocusOnMouseDownBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\IdleTypingExecutesCommandBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\IdleTypingUpdatesSourceBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\PreviewGotKeyboardFocusSelectsItemListBoxBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\RefreshBindingAfterLoadBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\RegisterAppShortcutKeysBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\ResettableGridSplitterBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\SelectAllOnFocusTextBoxBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\WatermarkBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BindCommandBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BindIsVisibleViewBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Behaviors\BridgeBindingsBehavior.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\AbsoluteValueConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\BooleanToKnownValueConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\BooleanVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\CardinalityToVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\NoOpConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\EnumBooleanConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\EnumVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\InvertBooleanConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\NumericRangeVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\NumericSignToVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\ObjectRefToBooleanConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\ObjectRefToVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\PercentToDegreesConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\StringVisibilityConverter.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Converters\ZeroToOneBasedIndexConverter.cs" />
     <Compile Include="..\BellaCode.Mvvm\DefaultViewModelFactory.cs" />
+    <Compile Include="..\BellaCode.Mvvm\Helpers\VisualTreeHelperT.cs" />
     <Compile Include="..\BellaCode.Mvvm\InteractionEventArgs.cs" />
     <Compile Include="..\BellaCode.Mvvm\InteractionEventArgs.GenericT2.cs" />
     <Compile Include="..\BellaCode.Mvvm\InteractionEventArgs.GenericT1.cs" />
@@ -64,6 +112,11 @@
     <Compile Include="..\BellaCode.Mvvm\ViewModel.Generic1T.cs" />
     <Compile Include="..\BellaCode.Mvvm\ViewModel.Generic2T.cs" />
     <Compile Include="..\BellaCode.Mvvm\ViewModelScope.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\BellaCode\zNuGet\MVVM\BellaCode.Mvvm.snk">
+      <Link>BellaCode.Mvvm.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
