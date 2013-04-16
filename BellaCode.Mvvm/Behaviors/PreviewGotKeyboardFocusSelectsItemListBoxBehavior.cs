@@ -5,7 +5,7 @@
     using System.Windows.Interactivity;
 
     /// <summary>
-    /// Helps cListBox to select the current item when the ListBox takes keyboard focus.
+    /// Helps ListBox to select the current item when the ListBox takes keyboard focus.
     /// </summary>
     public class PreviewGotKeyboardFocusSelectsItemListBoxBehavior : Behavior<ListBox>
     {
