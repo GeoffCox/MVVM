@@ -8,7 +8,7 @@
     /// <summary>
     /// Shows the specified watermark control when the textbox is empty and does not have focus.
     /// </summary>
-    [ExcludeFromCodeCoverage]    
+    [ExcludeFromCodeCoverage]
     public class WatermarkBehavior : Behavior<TextBox>
     {
         public UIElement Watermark
@@ -19,6 +19,8 @@
 
         public static readonly DependencyProperty WatermarkProperty = DependencyProperty.Register("Watermark", typeof(UIElement), typeof(WatermarkBehavior),
             new FrameworkPropertyMetadata(null, (d, e) => ((WatermarkBehavior)d).OnWatermarkChanged((UIElement)e.OldValue, (UIElement)e.NewValue)));
+
+        public bool IsVisibleWhenFocusedAndEmpty { get; set; }
 
         private void OnWatermarkChanged(UIElement oldValue, UIElement newValue)
         {
@@ -63,7 +65,11 @@
         {
             if (this.Watermark != null && this.AssociatedObject != null)
             {
-                if (this.AssociatedObject.IsFocused || !string.IsNullOrEmpty(this.AssociatedObject.Text))
+                if (!string.IsNullOrEmpty(this.AssociatedObject.Text)) // I hide the watermark if there is text
+                {
+                    this.Watermark.Visibility = Visibility.Hidden;
+                }
+                else if (this.AssociatedObject.IsFocused && !this.IsVisibleWhenFocusedAndEmpty) // I hide if focused and empty unless set to show
                 {
                     this.Watermark.Visibility = Visibility.Hidden;
                 }
