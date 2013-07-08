@@ -34,12 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BellaCode.Mvvm">
+      <HintPath>..\packages\BellaCode.Mvvm.1.0.6\lib\net40-client\BellaCode.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\BellaCode.Mvvm.1.0.6\lib\net40-client\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\BellaCode.Mvvm.1.0.6\lib\net40-client\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -77,10 +85,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BellaCode.Mvvm\BellaCode.Mvvm.csproj">
-      <Project>{7DC5C637-5988-41F8-8921-DDB7F238FCAA}</Project>
-      <Name>BellaCode.Mvvm</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BellaCodeAir.Models\BellaCodeAir.Models.csproj">
       <Project>{82EB77F0-DA87-4273-BE28-55C91FEB1515}</Project>
       <Name>BellaCodeAir.Models</Name>
