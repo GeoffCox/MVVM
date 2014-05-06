@@ -7,6 +7,8 @@ Now available via NuGet! PM> Install-Package BellaCode.Mvvm
 
 Licensed under the MIT license: http://opensource.org/licenses/MIT
 
+HELLO!
+
 Features
 ----
 
